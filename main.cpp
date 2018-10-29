@@ -1,5 +1,8 @@
 /*
-
+Description:
+Author: Matthew Carlson
+Email: carlsonm137773@student.vvc.edu
+Date of creation: 10/29/2018
 */
 
 #include<iostream>
@@ -42,7 +45,10 @@ void Transaction::read()
     day = get_int("Day:", 1, 30);
 	amount = get_double("Amount: ");
 	cout << "Description: ";
+	cin >> description; //dosent allow input without the extra input for some reason
 	getline(cin, description);
+	// problem with this function
+	// prompts for all and takes input for int and double but skips the input for the string
 }
 
 void Transaction::print()
@@ -67,23 +73,55 @@ string Transaction::get_description()
 
 int Transaction::get_int(string prompt, int min, int max)
 {
-//get valid input number >= min && number <= max || cin.fail()
     int number;
-    cout << prompt;
-	cin >> number;
+	string invalid = "Invalid input try again";
+    do
+	{
+	    cout << prompt;
+		cin >> number;
+
+		if(cin.fail() || number < min || number > max)
+		{
+		    if(cin.fail())
+			{
+			    cin.clear();
+				string e;
+				cin >> e;
+			    cout << invalid;
+			}
+			else
+			{
+			    cout << "Invaldi input please eneter a number between " << min << " and " << max << endl;
+			}
+		}
+	}while(cin.fail() || number < min || number > max);
+
 
 	return number;
 }
 
 double Transaction::get_double(string prompt)
 {
-// get valid input cin.fail()
     double number;
-	cout << prompt;
-	cin >> number;
+	string invalid ="Invalid input try again ";
+	do
+	{
+	    cout << prompt;
+		cin >> number;
+
+		if(cin.fail())
+		{
+		    cin.clear();
+			string e;
+			cin >> e;
+		    cout << invalid << endl;
+		}
+	}while(cin.fail());
 
 	return number;
 }
+
+bool answer(string prompt);
 
 int main()
 {
@@ -91,7 +129,10 @@ int main()
 // intil array Transaction
 
 // get input
-
+    do
+	{
+	
+	}while(answer("more input?"));
 // sort
 
 // calc interest
@@ -99,13 +140,25 @@ int main()
 // output
 #endif
 #if 1 // class test
-
     Transaction next;
-
 	next.read();
     next.print();
-
 #endif
 
     return 0;
+}
+
+bool answer(string prompt)
+{
+    int number;
+    cout << prompt << " 0 for no ";
+	cin >> number;
+	if(number == 0)
+	{
+	    return false;
+	}
+	else
+	{
+	    return true;
+	}
 }
