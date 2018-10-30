@@ -14,7 +14,7 @@ class Transaction
 {
 public:
     Transaction();
-	Transaction(int _day, double _amount, string description);
+	Transaction(int _day, double _amount, string _description);
 	void read();
 	void print();
 	int get_day();
@@ -127,7 +127,7 @@ int main()
 {
 #if 0 // main 
 // intil array Transaction
-
+    vector<Transaction> transactions;
 // get input
     do
 	{
