@@ -14,12 +14,14 @@ date of creation: 5/11/2018
 
 void print_statement(std::vector<Transaction> x);
 double interest_min_daily_balance();
-double interest_average_daily_balance();
+double interest_average_daily_balance(double t);
 double interest_month();
 
+const double RATE = 0.05;
 
 int main()
 {
+
 	std::vector<Transaction> transaction;
 	bool more;
 
@@ -56,6 +58,7 @@ void print_statement(std::vector<Transaction> x)
 	}
 	
 	std::cout << "Ending balace: " << total << std::endl;
+	std::cout << "Interest using average daily balance: " << interest_average_daily_balance(total);
 }
 
 double interest_min_daily_balance()
@@ -63,9 +66,9 @@ double interest_min_daily_balance()
 
 }
 
-double interest_average_daily_balance()
+double interest_average_daily_balance(double t)
 {
-
+	return (t / 30) * RATE; 
 }
 
 double interest_month()
