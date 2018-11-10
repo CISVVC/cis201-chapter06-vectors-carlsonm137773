@@ -1,6 +1,9 @@
 /*
 file: main.cpp
-description:
+description: Takes inputs for the Transaction class and stores them in a vector
+			 calculates interest 
+			 outputs a statement
+
 author: Matthew Carlson
 email: carlsonm137773@student.vvc.edu
 date of creation: 5/11/2018
@@ -17,8 +20,9 @@ double interest_min_daily_balance();
 double interest_average_daily_balance(std::vector<Transaction> t);
 double interest_month();
 
-const double RATE = 0.05;
-const int DAYS_IN_MONTH = 30;
+const double RATE = 0.05; //interest rate per month
+const int DAYS_IN_MONTH = 30; //days in the statement period
+
 int main()
 {
 
@@ -47,6 +51,10 @@ int main()
 	return 0;
 }
 
+/*
+Prints a statement of a vector of the Transaction class
+@peram x a vector of the transaction class
+*/
 void print_statement(std::vector<Transaction> x)
 {
 	double total = 0;
@@ -66,6 +74,11 @@ double interest_min_daily_balance()
 
 }
 
+/*
+calculates interest using the average daily balance
+@peram t A vector of the Transaction class
+@return interest using the average daily balance
+*/
 double interest_average_daily_balance(std::vector<Transaction> t)
 {
 	std::vector<double> x;

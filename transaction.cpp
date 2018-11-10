@@ -1,6 +1,6 @@
 /*
-file: transaction.h
-description: 
+file: transaction.cpp
+description: Transaction class for a bank statement
 author: Matthew Carlson
 email: carlsonm137773@student.vvc.edu
 date of creation: 5/11/2018
