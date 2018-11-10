@@ -14,11 +14,11 @@ date of creation: 5/11/2018
 
 void print_statement(std::vector<Transaction> x);
 double interest_min_daily_balance();
-double interest_average_daily_balance(double t);
+double interest_average_daily_balance(std::vector<Transaction> t);
 double interest_month();
 
 const double RATE = 0.05;
-
+const int DAYS_IN_MONTH = 30;
 int main()
 {
 
@@ -58,7 +58,7 @@ void print_statement(std::vector<Transaction> x)
 	}
 	
 	std::cout << "Ending balace: " << total << std::endl;
-	std::cout << "Interest using average daily balance: " << interest_average_daily_balance(total);
+	std::cout << "Interest using average daily balance: " << interest_average_daily_balance(x);
 }
 
 double interest_min_daily_balance()
@@ -66,9 +66,32 @@ double interest_min_daily_balance()
 
 }
 
-double interest_average_daily_balance(double t)
+double interest_average_daily_balance(std::vector<Transaction> t)
 {
-	return (t / 30) * RATE; 
+	std::vector<double> x;
+
+	for(int i=0; i<t.size(); i++)
+	{
+		double total = 0;
+
+		for(int day=0; day < DAYS_IN_MONTH; day++)
+		{
+			if(t[i].get_day() == day)
+			{
+				total = total + t[i].get_amount();
+			}
+		}
+		x.push_back(total);
+	}
+	
+	double n = 0;
+
+	for(int i=0; i<x.size(); i++)
+	{
+		n = x[i] + n;
+	}
+
+	return (n / DAYS_IN_MONTH) * RATE; 
 }
 
 double interest_month()
