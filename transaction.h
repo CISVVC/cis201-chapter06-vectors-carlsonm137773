@@ -13,6 +13,7 @@ class Transaction
 {
 public:
 	Transaction(); // default constructor
+	Transaction(int _day, double _amount);
 	void read(); // inputs m_day m_amount m_description
 	int get_day(); // returns m_day
 	double get_amount(); // returns m_amount

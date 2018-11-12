@@ -17,6 +17,12 @@ Transaction::Transaction()
 	m_amount = 0;
 }
 
+Transaction::Transaction(int _day, double _amount)
+{
+	m_day = _day;
+	m_amount = _amount;
+}
+
 void Transaction::read()
 {
 	std::cin >> m_day;
