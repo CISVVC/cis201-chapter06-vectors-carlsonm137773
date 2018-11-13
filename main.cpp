@@ -15,7 +15,10 @@ date of creation: 5/11/2018
 
 int main()
 {
-	Statement x;
+	const double RATE = 0.005;
+	const int TOTAL_DAYS = 30;
+
+	Statement x = Statement(TOTAL_DAYS, RATE);
 
 	x.read();
 

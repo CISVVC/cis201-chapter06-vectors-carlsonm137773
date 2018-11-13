@@ -46,4 +46,7 @@ int Transaction::get_day()
 	return m_day;
 }
 
-
+std::string Transaction::get_description()
+{
+	return m_description;
+}
