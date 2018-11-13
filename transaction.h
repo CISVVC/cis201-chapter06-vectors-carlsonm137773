@@ -18,7 +18,7 @@ public:
 	int get_day(); // returns m_day
 	double get_amount(); // returns m_amount
 	void print(); // prints m_day m_amount m_description and ends the line
-	std::string get_description();
+	std::string get_description(); //returns description
 private:
 	std::string m_description;
 	int m_day;

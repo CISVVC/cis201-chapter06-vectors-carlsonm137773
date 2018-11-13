@@ -1,6 +1,6 @@
 /*
 file: statement.cpp
-description:
+description: Statement class vectors for daily balance and transaction log
 author: Matthew Carlson
 email: carlsonm137773@student.vvc.edu
 date of creation: 10/11/2018

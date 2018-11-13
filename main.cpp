@@ -1,6 +1,6 @@
 /*
 file: main.cpp
-description: 
+description: prompts the user for transactions using the Statement class and outputs a statement using both minimum daily blance and average daily balance 
 author: Matthew Carlson
 email: carlsonm137773@student.vvc.edu
 date of creation: 5/11/2018
